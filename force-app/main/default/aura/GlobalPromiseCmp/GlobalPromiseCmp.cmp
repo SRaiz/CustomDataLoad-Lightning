@@ -1,0 +1,6 @@
+<aura:component>
+    <aura:method name="callWithPromise" action="{! c.callWithPromise }" access="global">
+        <aura:attribute name="action" type="object" />
+        <aura:attribute name="inputParams" type="object" />
+    </aura:method>
+</aura:component>

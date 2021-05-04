@@ -1,0 +1,22 @@
+<aura:component controller="LoadSelectionController" >
+	<!-- Attributes -->
+    <aura:attribute name="loadMap" type="Map" access="public" />
+    <aura:attribute name="loadValues" 
+                    type="Monthly_Load__mdt" 
+                    default="{'sobjectType': 'Monthly_Load__mdt', 
+                              'Load_Type__c': ''}" />
+
+    <aura:registerEvent name="sendLoadValueToParent" type="c:GlobalComponentEvent" />
+    
+    <div>
+        <lightning:select aura:id="loadType" value="{! v.loadValues.LoadType__c }" 
+                          onchange="{! c.handleLoadChange }" name="LoadType__c" 
+                          label="Select Load Type" required="true">
+            <option value="">Choose One..</option>
+            <aura:iteration items="{! v.loadMap }" var="load" indexVar="key">
+                <option text="{! load.value }" value="{! load.key }" 
+                        selected="{! load.key == v.loadValues.LoadType__c }" />
+            </aura:iteration>
+        </lightning:select>
+    </div>
+</aura:component>

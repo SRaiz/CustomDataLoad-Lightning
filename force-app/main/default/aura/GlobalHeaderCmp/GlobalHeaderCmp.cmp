@@ -1,0 +1,31 @@
+<aura:component>
+    <!-- Public attributes -->
+    <aura:attribute name="headerName" type="String" default="" />
+    <aura:attribute name="iconName" type="String" default="" />
+    <aura:attribute name="wantHeaderAbsoluteCentre" type="boolean" default="false" />
+    
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container" title="{! v.headerName }">
+                            <lightning:icon iconName="{! v.iconName }" alternativeText="{! v.iconName }" />
+                        </span>
+                    </div>
+                    <div class="{! v.wantHeaderAbsoluteCentre ? 'slds-media_body slds-align_absolute-center' : 'slds-media_body' }">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="{! v.headerName }">
+                                        {! v.headerName }
+                                    </span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>       
+        </div>
+    </div>
+</aura:component>

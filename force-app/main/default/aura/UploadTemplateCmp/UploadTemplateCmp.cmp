@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="fileUploaderContactId" type="String" default="" access="public" />    
+    <aura:attribute name="fileName" type="String" default="" access="private" />
+    
+    <!-- Custom Event -->
+    <aura:registerEvent name="makeUploadButtonActive" type="c:GlobalComponentEvent" />
+    
+    <div>
+        <lightning:fileUpload name="fileUploader" multiple="false" accept=".csv" 
+                              recordId="{! v.fileUploaderContactId }" onuploadfinished="{! c.handleFilesUpload }" />
+        <p>{! v.fileName }</p>
+    </div>
+</aura:component>

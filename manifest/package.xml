@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>LoadSelectionController</members>
+        <members>LoadSelectionBatch</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>GlobalHeaderCmp</members>
+        <members>GlobalPromiseCmp</members>
+        <members>LoadSelection</members>
+        <members>UploadFunctionalityCmp</members>
+        <members>UploadTemplateCmp</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>Monthly_Load__mdt</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Load_Size</members>
+        <name>CustomLabel</name>
+    </types>
+    <version>51.0</version>
+</Package>

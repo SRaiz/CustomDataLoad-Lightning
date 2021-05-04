@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FieldAPIName__c</fullName>
+    <description>This is having the api names for the fields for the object for which the data load is required.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Make sure that API name is in same order as of Field Name for the object. Separate each api name with a comma.</inlineHelpText>
+    <label>Field API Name</label>
+    <length>131072</length>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

@@ -1,0 +1,86 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="LoadSelectionController">
+    <aura:attribute name="selectedStep" type="String" default="1" />
+    <aura:attribute name="selectedLoadType" type="String" default="" />
+    <aura:attribute name="defaultLoadContactId" type="String" default="" />
+    <aura:attribute name="contentDocumentId" type="String" default="" />
+    <aura:attribute name="uploadJsonString" type="String" default="" />
+    <aura:attribute name="disableUploadBtn" type="Boolean" default="true" />
+    <aura:attribute name="defaultLoadValues" type="Object" />
+    <aura:attribute name="headerNameToApiMapping" type="Object" />
+    <aura:attribute name="colList" type="String[]" />
+    <aura:attribute name="loadMapValues" type="Map" />
+    <aura:attribute name="currentBatchSize" type="Integer" default="0" />
+    <aura:attribute name="startIndex" type="Integer" default="0" />
+    <aura:attribute name="allCsvRecordsToUpload" type="Object[]" />
+    <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:attribute name="totalRecordsToProcess" type="Integer" />
+
+    <!-- Aura Handler -->
+    <aura:handler name="init" action="{! c.doInit }" value="{! this }" />
+    <aura:handler name="sendLoadValueToParent" event="c:GlobalComponentEvent" 
+                  action="{! c.handleSendLoadToParentEvent }" />
+    <aura:handler name="makeUploadButtonActive" event="c:GlobalComponentEvent" 
+                  action="{! c.handleMakeUploadButtonActiveEvent }" />
+    <aura:handler name="change" action="{! c.doChangeLoadType }" value="{! v.selectedLoadType }" />
+    <aura:handler name="change" action="{! c.processCSVBatch }" value="{! v.currentBatchSize }" />
+    
+    <!-- Notifications Library -->
+    <lightning:notificationsLibrary aura:id="notifLib" />
+
+    <!--  Promise Service Component -->
+    <c:GlobalPromiseCmp aura:id="promiseService" />
+
+    <div>
+        <c:GlobalHeaderCmp headerName="Monthly Data Load" iconName="standard:logging" 
+                           wantHeaderAbsoluteCentre="true" />
+    </div>
+
+    <aura:if isTrue="{! v.loaded }">
+        <lightning:card>
+            <aura:set attribute="footer">
+                <lightning:button variant="neutral" label="Back" iconName="utility:back"
+                                disabled="{! v.selectedStep == '1' }" onclick="{! c.handleBack }" />
+                <aura:if isTrue="{! v.selectedStep == '2' }">
+                    <lightning:button label="Download CSV" iconName="utility:download" onclick="{! c.downloadCsv }" />
+                </aura:if>
+                <aura:if isTrue="{! v.selectedStep == '3' }">
+                    <lightning:button label="Upload CSV" iconName="utility:upload" 
+                                    onclick="{! c.loadCSVDataToSF }" disabled="{! v.disableUploadBtn }"/>
+                </aura:if>
+                <aura:if isTrue="{! v.selectedStep != '3' }">
+                    <lightning:button variant="brand" label="Next" iconName="utility:forward" onclick="{! c.handleNext }" />
+                </aura:if>
+            </aura:set>
+
+            <div class="slds-p-around_small">
+                <div>
+                    <lightning:progressIndicator currentStep="{! v.selectedStep }" type="path">
+                        <lightning:progressStep label="Load Selection" value="1" />
+                        <lightning:progressStep label="Download CSV" value="2" />
+                        <lightning:progressStep label="Upload CSV" value="3" />
+                    </lightning:progressIndicator>
+                </div>
+
+                <!-- components rendered as per progress step -->
+                <div class="slds-m-top_small">
+                    <aura:if isTrue="{! v.selectedStep == '1' }">
+                        <c:LoadSelection loadMap="{! v.loadMapValues }" />
+                    </aura:if>
+                    <aura:if isTrue="{! v.selectedStep == '2' }">
+                        <p class="slds-align_absolute-center">
+                            Please download the template by clicking on download csv button below. Please fill the details in the same template and upload to salesforce.
+                        </p>
+                    </aura:if>
+                    <aura:if isTrue="{! v.selectedStep == '3' }">
+                        <c:UploadTemplateCmp fileUploaderContactId="{! v.defaultLoadContactId }"/>
+                    </aura:if>
+                </div>
+            </div>
+            
+        </lightning:card>
+
+        <aura:set attribute="else">
+            <lightning:spinner alternativeText="Uploading Data" size="large" variant="brand" />
+        </aura:set>
+    </aura:if>
+</aura:component>
