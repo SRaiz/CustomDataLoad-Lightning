@@ -1,6 +1,6 @@
 # Introduction: 
 
-Now that you’ve landed here, I want to tell you that you can use this project to do a custom data load for your salesforce objects in salesforce lightning.
+Now that you’ve landed here, I want to tell you that you can use this project to do a custom data load for your salesforce objects in salesforce lightning. **The best this with this approach is that it provides you to load any number of data in salesforce without using data loader with chunking being done at UI level.** 
 
 ## Next Steps?
 
@@ -10,6 +10,7 @@ Now that you’ve landed here, I want to tell you that you can use this project 
 - Make sure to add the **API NAME** of the object for which you want to create a data load in this field.
 - In the **FieldName__c** field, add the name of the fields for the corresponding object which you want to come in csv template. Add them separated by comma.
 - In the **FieldAPIName__c** field, add the api name of the fields for the corresponding object in the same order as done in **FieldName__c**. Add them separated by comma.
+- There is also the provision for giving out certain number of rows to the batch from the UI itself. This can be configured by using a custom label named **'Load_Size'**. The value in this is going to take those many number of rows to pass as a batch from UI itself.
 
 ## Configure Your Salesforce DX Project
 
