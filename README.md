@@ -1,6 +1,6 @@
 # Introduction: 
 
-Now that you’ve landed here, I want to tell you that you can use this project to do a custom data load for your salesforce objects in salesforce lightning. **The best this with this approach is that it provides you to load any number of data in salesforce without using data loader with chunking being done at UI level.** 
+Now that you’ve landed here, I want to tell you that you can use this project to do a custom data load for your salesforce objects in salesforce lightning. **The best this with this project is that it provides you to load any number of data in salesforce without using data loader with chunking being done at UI level.** 
 
 ## Next Steps?
 
