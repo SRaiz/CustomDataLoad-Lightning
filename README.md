@@ -2,6 +2,16 @@
 
 Now that you’ve landed here, I want to tell you that you can use this project to do a custom data load for your salesforce objects in salesforce lightning. **The best this with this project is that it provides you to load any number of data in salesforce without using data loader with chunking being done at UI level.** 
 
+## Prerequisites:
+
+We create an account and contact for attaching the files that needs to load in salesforce.
+
+- Create an Account named **'File Upload Account - DO NOT DELETE'**.
+- On the account created above create a contact named **'File Upload Contact - DO NOT DELETE'**
+- First Name of Contact : **File Upload Contact -**
+- Last Name of Contact  : **DO NOT DELETE**
+
+
 ## Next Steps?
 
 - Once you deploy the changes, there will be a custom metadata type named 'Monthly_Load__mdt' created in salesforce
