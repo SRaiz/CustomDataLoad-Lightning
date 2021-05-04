@@ -1,10 +1,15 @@
-# Salesforce DX Project: Next Steps
+# Introduction: 
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Now that you’ve landed here, I want to tell you that you can use this project to do a custom data load for your salesforce objects in salesforce lightning.
 
-## How Do You Plan to Deploy Your Changes?
+## Next Steps?
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+- Once you deploy the changes, there will be a custom metadata type named 'Monthly_Load__mdt' created in salesforce
+- Make sure to create the records for the objects for which you want to create a data load.
+- Initially the **LoadType__c** field will be having two predefined values namely 'Account' and 'Contact'.
+- Make sure to add the **API NAME** of the object for which you want to create a data load in this field.
+- In the **FieldName__c** field, add the name of the fields for the corresponding object which you want to come in csv template. Add them separated by comma.
+- In the **FieldAPIName__c** field, add the api name of the fields for the corresponding object in the same order as done in **FieldName__c**. Add them separated by comma.
 
 ## Configure Your Salesforce DX Project
 
