@@ -4,7 +4,7 @@
     <aura:attribute name="loadValues" 
                     type="Monthly_Load__mdt" 
                     default="{'sobjectType': 'Monthly_Load__mdt', 
-                              'Load_Type__c': ''}" />
+                              'LoadType__c': ''}" />
 
     <aura:registerEvent name="sendLoadValueToParent" type="c:GlobalComponentEvent" />
     
